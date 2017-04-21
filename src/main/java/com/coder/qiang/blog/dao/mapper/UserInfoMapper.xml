@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.coder.qiang.blog.dao.UserInfoMapper" >
-  <resultMap id="BaseResultMap" type="com.coder.qiang.blog.model.UserInfo" >
+  <resultMap id="BaseResultMap" type="com.coder.qiang.blog.modal.UserInfo" >
     <id column="id" property="id" jdbcType="INTEGER" />
     <result column="name" property="name" jdbcType="VARCHAR" />
     <result column="sex" property="sex" jdbcType="VARCHAR" />
@@ -24,7 +24,7 @@
     delete from user_info
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.coder.qiang.blog.model.UserInfo" >
+  <insert id="insert" parameterType="com.coder.qiang.blog.modal.UserInfo" >
     insert into user_info
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -73,7 +73,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.coder.qiang.blog.model.UserInfo" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.coder.qiang.blog.modal.UserInfo" >
     update user_info
     <set >
       <if test="name != null" >

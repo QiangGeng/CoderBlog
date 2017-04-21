@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:util="http://www.springframework.org/schema/util"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
-       http://www.springframework.org/schema/beans/spring-beans.xsd
-       ">
+       http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
     <!-- 继承自AuthorizingRealm的自定义Realm-->
     <bean id="myRealm" class="com.coder.qiang.blog.shiro.UserRealm"/>
 
@@ -23,11 +22,17 @@
         <property name="maxAge" value="-1"/>
     </bean>
 
+    <!-- 会话DAO -->
+    <bean id="sessionDAO" class="org.apache.shiro.session.mgt.eis.EnterpriseCacheSessionDAO">
+        <property name="activeSessionsCacheName" value="shiro-activeSessionCache"/>
+    </bean>
+
     <bean id="sessionManager" class="org.apache.shiro.web.session.mgt.DefaultWebSessionManager">
         <property name="globalSessionTimeout" value="180000"/>
         <property name="deleteInvalidSessions" value="true"/>
         <property name="sessionValidationSchedulerEnabled" value="true"/>
         <property name="sessionIdCookieEnabled" value="true"/>
+        <property name="sessionDAO" ref="sessionDAO"></property>
         <property name="sessionIdCookie" ref="sessionIdCookie"/>
     </bean>
 
@@ -48,8 +53,7 @@
         <!--优先级顺序自上而下-->
         <property name="filterChainDefinitions">
             <value>
-                /admin/login=anon
-                /admin/*/**=authc
+                /**=anon
             </value>
         </property>
 
