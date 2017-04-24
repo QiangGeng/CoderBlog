@@ -12,8 +12,13 @@
         Coder Blog - 文章管理
     </tiles:putAttribute>
     <tiles:putAttribute name="page_css">
-        <link href="${pageContext.request.contextPath}/assets/global/plugins/datatables/media/css/jquery.dataTables.min.css" rel="stylesheet"
-              type="text/css"/>
+        <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/assets/global/plugins/datatables/plugins/bootstrap/dataTables.bootstrap.css?v=1"/>
+        <style>
+            .table-container
+            {
+                min-height: 600px;
+            }
+        </style>
     </tiles:putAttribute>
     <tiles:putAttribute name="content">
         <div class="page-fixed-main-content">
@@ -31,8 +36,22 @@
                             </div>
                         </div>
                         <div class="portlet-body">
-                            <div id="columnLine" class="columnLine">
+                            <div class="table-container">
+                                <table id="table-topic-list" class="table table-striped table-bordered table-hover">
+                                    <thead>
+                                        <tr class="">
+                                            <th width="40%">标题</th>
+                                            <th width="10%">状态</th>
+                                            <th width="5%">阅读</th>
+                                            <th width="5%"> 评论</th>
+                                            <th width="10%">评论权限</th>
+                                            <th width="30%">操作</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
 
+                                    </tbody>
+                                </table>
                             </div>
                         </div>
                     </div>
@@ -41,9 +60,14 @@
         </div>
     </tiles:putAttribute>
     <tiles:putAttribute name="page_script">
-        <script src="${pageContext.request.contextPath}/assets/global/plugins/datatables/media/js/jquery.dataTables.min.js" type="text/javascript"></script>
-        <script src="${pageContext.request.contextPath}/assets/global/scripts/datatable.js" type="text/javascript"></script>
-        <script src="${pageContext.request.contextPath}/assets/global/scripts/datatable.js" type="text/javascript"></script>
+        <script type="text/javascript"
+                src="${pageContext.request.contextPath }/assets/global/plugins/datatables/media/js/jquery.dataTables.min.js"></script>
+        <script type="text/javascript"
+                src="${pageContext.request.contextPath }/assets/global/plugins/datatables/plugins/bootstrap/dataTables.bootstrap.js"></script>
+        <script type="text/javascript"
+                src="${pageContext.request.contextPath}/assets/global/scripts/datatable_zh.js"></script>
+        <script type="text/javascript"
+                src="${pageContext.request.contextPath}/assets/admin/pages/scripts/topic-list.js"></script>
         <script>
             jQuery(document).ready(function () {
                 Metronic.init();
