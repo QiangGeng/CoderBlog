@@ -31,7 +31,7 @@
                                 <span class="caption-helper">.</span>
                             </div>
                             <div class="actions">
-                                <a href="#" class="btn btn-circle btn-default btn-sm">
+                                <a href="${pageContext.request.contextPath}/admin/topic/topic-add.html" class="btn btn-circle btn-default btn-sm">
                                     <i class="fa fa-plus"></i> 添加 </a>
                             </div>
                         </div>
@@ -49,7 +49,6 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-
                                     </tbody>
                                 </table>
                             </div>
@@ -65,13 +64,14 @@
         <script type="text/javascript"
                 src="${pageContext.request.contextPath }/assets/global/plugins/datatables/plugins/bootstrap/dataTables.bootstrap.js"></script>
         <script type="text/javascript"
-                src="${pageContext.request.contextPath}/assets/global/scripts/datatable_zh.js"></script>
+                src="${pageContext.request.contextPath}/assets/global/scripts/datatable_zh.js?v=1"></script>
         <script type="text/javascript"
-                src="${pageContext.request.contextPath}/assets/admin/pages/scripts/topic-list.js"></script>
+                src="${pageContext.request.contextPath}/assets/admin/pages/scripts/topic-list.js?v=1.1"></script>
         <script>
             jQuery(document).ready(function () {
                 Metronic.init();
                 Layout.init();
+                setMenu("side-topic");
                 TopicList.init();
             });
         </script>

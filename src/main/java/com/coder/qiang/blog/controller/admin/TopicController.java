@@ -11,8 +11,21 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/admin/topic")
 public class TopicController extends BaseController{
 
+    /**
+     * 文章列表
+     * @return
+     */
     @RequestMapping("topic-list.html")
-    public String showIndex(){
+    public String showList(){
         return ADMIN_PREFIX+"topic-list";
+    }
+
+    /**
+     * 添加文章
+     * @return
+     */
+    @RequestMapping("topic-add.html")
+    public String showAdd(){
+        return ADMIN_PREFIX+"topic-add";
     }
 }

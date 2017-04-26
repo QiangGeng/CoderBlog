@@ -27,6 +27,14 @@ public class Topic {
 
     private String content;
 
+    private boolean comment;
+
+    private Integer readCount;
+
+    private Integer upVote;
+
+    private Integer commentCount;
+
     public Topic() {
     }
 
@@ -124,5 +132,37 @@ public class Topic {
 
     public void setContent(String content) {
         this.content = content == null ? null : content.trim();
+    }
+
+    public boolean isComment() {
+        return comment;
+    }
+
+    public void setComment(boolean comment) {
+        this.comment = comment;
+    }
+
+    public Integer getReadCount() {
+        return readCount;
+    }
+
+    public void setReadCount(Integer readCount) {
+        this.readCount = readCount;
+    }
+
+    public Integer getUpVote() {
+        return upVote;
+    }
+
+    public void setUpVote(Integer upVote) {
+        this.upVote = upVote;
+    }
+
+    public Integer getCommentCount() {
+        return commentCount;
+    }
+
+    public void setCommentCount(Integer commentCount) {
+        this.commentCount = commentCount;
     }
 }

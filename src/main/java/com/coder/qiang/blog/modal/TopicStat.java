@@ -7,6 +7,8 @@ public class TopicStat {
 
     private Integer upVote;
 
+    private Integer commentCount;
+
     public TopicStat() {
     }
 
@@ -32,5 +34,13 @@ public class TopicStat {
 
     public void setUpVote(Integer upVote) {
         this.upVote = upVote;
+    }
+
+    public Integer getCommentCount() {
+        return commentCount;
+    }
+
+    public void setCommentCount(Integer commentCount) {
+        this.commentCount = commentCount;
     }
 }

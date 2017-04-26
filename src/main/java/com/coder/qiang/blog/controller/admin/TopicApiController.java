@@ -3,8 +3,10 @@ package com.coder.qiang.blog.controller.admin;
 import com.coder.qiang.blog.controller.BaseController;
 import com.coder.qiang.blog.modal.Topic;
 import com.coder.qiang.blog.service.TopicService;
+import com.coder.qiang.common.data.JsonResult;
 import com.coder.qiang.common.data.PageRequest;
 import com.coder.qiang.common.data.PageResponse;
+import com.coder.qiang.common.utils.ObjectUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,11 +23,43 @@ public class TopicApiController extends BaseController {
     @Autowired
     private TopicService topicService;
 
-    @RequestMapping(value = "list",method = RequestMethod.POST)
+    /**
+     * 获取文章列表
+     *
+     * @param topic
+     * @param pageRequest
+     * @return
+     */
+    @RequestMapping(value = "list", method = RequestMethod.POST)
     @ResponseBody
-    public PageResponse<Topic> getTopicList(Topic topic, PageRequest pageRequest)
-    {
-        PageResponse<Topic> result=topicService.selectPageList(topic,pageRequest);
+    public PageResponse<Topic> getTopicList(Topic topic, PageRequest pageRequest) {
+        PageResponse<Topic> result = topicService.selectPageList(topic, pageRequest);
+        return result;
+    }
+
+    /**
+     * 撰写博客
+     *
+     * @param topic
+     * @return
+     */
+    @RequestMapping(value = "add", method = RequestMethod.POST)
+    @ResponseBody
+    public JsonResult addTopic(Topic topic) {
+        JsonResult result = new JsonResult();
+        if (ObjectUtils.isNull(topic.getTitle())) {
+            result.markError("标题不能为空！");
+        } else if (ObjectUtils.isNull(topic.getDecoration())) {
+            result.markError("摘要不能为空！");
+        } else if (ObjectUtils.isNull(topic.getContent())) {
+            result.markError("正文不能为空！");
+        } else {
+            if (topicService.insert(topic)) {
+                result.markSuccess("添加成功", null);
+            } else {
+                result.markSuccess("添加失败", null);
+            }
+        }
         return result;
     }
 }

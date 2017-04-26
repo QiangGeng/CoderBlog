@@ -19,8 +19,8 @@
         <!-- DOC: Set data-keep-expand="true" to keep the submenues expanded -->
         <!-- DOC: Set data-auto-speed="200" to adjust the sub menu slide up/down speed -->
         <ul class="page-sidebar-menu" data-keep-expanded="false" data-auto-scroll="true" data-slide-speed="200">
-            <li  class="active">
-                <a>
+            <li id="side-topic">
+                <a href="${pageContext.request.contextPath}/admin/topic/topic-list.html">
                     <i class="icon-book-open"></i>
                     <span class="title">文章管理</span>
                 </a>

@@ -28,24 +28,33 @@ License: You must have a valid license purchased only from themeforest(the above
     <meta content="" name="description"/>
     <meta content="" name="author"/>
     <!-- BEGIN GLOBAL MANDATORY STYLES -->
-    <link href="${pageContext.request.contextPath}/assets/global/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
-    <link href="${pageContext.request.contextPath}/assets/global/plugins/simple-line-icons/simple-line-icons.min.css" rel="stylesheet" type="text/css"/>
-    <link href="${pageContext.request.contextPath}/assets/global/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
-    <link href="${pageContext.request.contextPath}/assets/global/plugins/uniform/css/uniform.default.css" rel="stylesheet" type="text/css"/>
-    <link href="${pageContext.request.contextPath}/assets/global/plugins/bootstrap-switch/css/bootstrap-switch.min.css" rel="stylesheet" type="text/css"/>
+    <link href="${pageContext.request.contextPath}/assets/global/plugins/font-awesome/css/font-awesome.min.css"
+          rel="stylesheet" type="text/css"/>
+    <link href="${pageContext.request.contextPath}/assets/global/plugins/simple-line-icons/simple-line-icons.min.css"
+          rel="stylesheet" type="text/css"/>
+    <link href="${pageContext.request.contextPath}/assets/global/plugins/bootstrap/css/bootstrap.min.css"
+          rel="stylesheet" type="text/css"/>
+    <link href="${pageContext.request.contextPath}/assets/global/plugins/uniform/css/uniform.default.css"
+          rel="stylesheet" type="text/css"/>
+    <link href="${pageContext.request.contextPath}/assets/global/plugins/bootstrap-switch/css/bootstrap-switch.min.css"
+          rel="stylesheet" type="text/css"/>
     <!-- END GLOBAL MANDATORY STYLES -->
     <!-- BEGIN PAGE LEVEL PLUGIN STYLES -->
-    <link href="${pageContext.request.contextPath}/assets/global/plugins/morris/morris.css" rel="stylesheet" type="text/css">
+    <link href="${pageContext.request.contextPath}/assets/global/plugins/morris/morris.css" rel="stylesheet"
+          type="text/css">
     <!-- END PAGE LEVEL PLUGIN STYLES -->
     <!-- BEGIN PAGE STYLES -->
     <tiles:insertAttribute name="page_css" ignore="true"/>
     <!-- END PAGE STYLES -->
     <!-- BEGIN THEME STYLES -->
     <!-- DOC: To use 'rounded corners' style just load 'components-rounded.css' stylesheet instead of 'components.css' in the below style tag -->
-    <link href="${pageContext.request.contextPath}/assets/global/css/components-rounded.css" id="style_components" rel="stylesheet" type="text/css"/>
+    <link href="${pageContext.request.contextPath}/assets/global/css/components-rounded.css" id="style_components"
+          rel="stylesheet" type="text/css"/>
     <link href="${pageContext.request.contextPath}/assets/global/css/plugins.css" rel="stylesheet" type="text/css"/>
-    <link href="${pageContext.request.contextPath}/assets/admin/layout/css/layout.css" rel="stylesheet" type="text/css"/>
-    <link href="${pageContext.request.contextPath}/assets/admin/layout/css/custom.css" rel="stylesheet" type="text/css"/>
+    <link href="${pageContext.request.contextPath}/assets/admin/layout/css/layout.css" rel="stylesheet"
+          type="text/css"/>
+    <link href="${pageContext.request.contextPath}/assets/admin/layout/css/custom.css" rel="stylesheet"
+          type="text/css"/>
     <!-- END THEME STYLES -->
     <link rel="shortcut icon" href="${pageContext.request.contextPath}/favicon.ico"/>
 </head>
@@ -80,7 +89,8 @@ License: You must have a valid license purchased only from themeforest(the above
 
                     <!-- BEGIN GROUP NOTIFICATION -->
                     <div class="btn-group-notification btn-group" id="header_notification_bar">
-                        <button type="button" class="btn dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+                        <button type="button" class="btn dropdown-toggle" data-toggle="dropdown" data-hover="dropdown"
+                                data-close-others="true">
                             <span class="badge">0</span>
                         </button>
                         <ul class="dropdown-menu-v2">
@@ -94,7 +104,8 @@ License: You must have a valid license purchased only from themeforest(the above
 
                     <!-- BEGIN USER PROFILE -->
                     <div class="btn-group-img btn-group">
-                        <button type="button" class="btn btn-sm dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+                        <button type="button" class="btn btn-sm dropdown-toggle" data-toggle="dropdown"
+                                data-hover="dropdown" data-close-others="true">
                             <img src="${pageContext.request.contextPath}/assets/admin/layout/img/avatar1.jpg" alt="">
                         </button>
                         <ul class="dropdown-menu-v2" role="menu">
@@ -144,22 +155,36 @@ License: You must have a valid license purchased only from themeforest(the above
 <script src="${pageContext.request.contextPath}/assets/global/plugins/excanvas.min.js"></script>
 <![endif]-->
 <script src="${pageContext.request.contextPath}/assets/global/plugins/jquery.min.js" type="text/javascript"></script>
-<script src="${pageContext.request.contextPath}/assets/global/plugins/jquery-migrate.min.js" type="text/javascript"></script>
-<script src="${pageContext.request.contextPath}/assets/global/plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
-<script src="${pageContext.request.contextPath}/assets/global/plugins/bootstrap-hover-dropdown/bootstrap-hover-dropdown.min.js" type="text/javascript"></script>
-<script src="${pageContext.request.contextPath}/assets/global/plugins/jquery-slimscroll/jquery.slimscroll.min.js" type="text/javascript"></script>
-<script src="${pageContext.request.contextPath}/assets/global/plugins/jquery.blockui.min.js" type="text/javascript"></script>
-<script src="${pageContext.request.contextPath}/assets/global/plugins/uniform/jquery.uniform.min.js" type="text/javascript"></script>
-<script src="${pageContext.request.contextPath}/assets/global/plugins/bootstrap-switch/js/bootstrap-switch.min.js" type="text/javascript"></script>
+<script src="${pageContext.request.contextPath}/assets/global/plugins/jquery-migrate.min.js"
+        type="text/javascript"></script>
+<script src="${pageContext.request.contextPath}/assets/global/plugins/bootstrap/js/bootstrap.min.js"
+        type="text/javascript"></script>
+<script src="${pageContext.request.contextPath}/assets/global/plugins/bootstrap-hover-dropdown/bootstrap-hover-dropdown.min.js"
+        type="text/javascript"></script>
+<script src="${pageContext.request.contextPath}/assets/global/plugins/jquery-slimscroll/jquery.slimscroll.min.js"
+        type="text/javascript"></script>
+<script src="${pageContext.request.contextPath}/assets/global/plugins/jquery.blockui.min.js"
+        type="text/javascript"></script>
+<script src="${pageContext.request.contextPath}/assets/global/plugins/uniform/jquery.uniform.min.js"
+        type="text/javascript"></script>
+<script src="${pageContext.request.contextPath}/assets/global/plugins/bootstrap-switch/js/bootstrap-switch.min.js"
+        type="text/javascript"></script>
 <!-- END CORE PLUGINS -->
 <!-- BEGIN PAGE LEVEL PLUGINS -->
-<script src="${pageContext.request.contextPath}/assets/global/plugins/amcharts/amcharts/amcharts.js" type="text/javascript" ></script>
-<script src="${pageContext.request.contextPath}/assets/global/plugins/amcharts/amcharts/serial.js" type="text/javascript" ></script>
-<script src="${pageContext.request.contextPath}/assets/global/plugins/amcharts/amcharts/pie.js" type="text/javascript" ></script>
-<script src="${pageContext.request.contextPath}/assets/global/plugins/amcharts/amcharts/themes/light.js" type="text/javascript" ></script>
-<script src="${pageContext.request.contextPath}/assets/global/plugins/morris/morris.min.js" type="text/javascript"></script>
-<script src="${pageContext.request.contextPath}/assets/global/plugins/morris/raphael-min.js" type="text/javascript"></script>
-<script src="${pageContext.request.contextPath}/assets/global/plugins/jquery.sparkline.min.js" type="text/javascript"></script>
+<script src="${pageContext.request.contextPath}/assets/global/plugins/amcharts/amcharts/amcharts.js"
+        type="text/javascript"></script>
+<script src="${pageContext.request.contextPath}/assets/global/plugins/amcharts/amcharts/serial.js"
+        type="text/javascript"></script>
+<script src="${pageContext.request.contextPath}/assets/global/plugins/amcharts/amcharts/pie.js"
+        type="text/javascript"></script>
+<script src="${pageContext.request.contextPath}/assets/global/plugins/amcharts/amcharts/themes/light.js"
+        type="text/javascript"></script>
+<script src="${pageContext.request.contextPath}/assets/global/plugins/morris/morris.min.js"
+        type="text/javascript"></script>
+<script src="${pageContext.request.contextPath}/assets/global/plugins/morris/raphael-min.js"
+        type="text/javascript"></script>
+<script src="${pageContext.request.contextPath}/assets/global/plugins/jquery.sparkline.min.js"
+        type="text/javascript"></script>
 <!-- END PAGE LEVEL PLUGINS -->
 
 <!-- BEGIN PAGE LEVEL SCRIPTS -->
@@ -169,6 +194,22 @@ License: You must have a valid license purchased only from themeforest(the above
 <!-- END CORE PLUGINS -->
 <script type="text/javascript">
     window.apppath = '${pageContext.request.contextPath }';
+    $("html,body").animate({scrollTop:$("body").offset().top},200);
+    function setMenu(id) {
+        $("#" + id).addClass("active");
+    }
+
+    function isNULL(str) {
+        if (str == null || str == "")
+            return true;
+        return false;
+    }
+    function hasError_input(id,str) {
+        $("#"+id).parent().parent().addClass("has-error")
+        $("#"+id).parent().find(".help-block").html(str);
+        $("html,body").animate({scrollTop:$("#"+id).offset().top-100},200);
+        return false;
+    }
 </script>
 <tiles:insertAttribute name="page_script" ignore="true"/>
 <tiles:insertAttribute name="page_script_jq" ignore="true"/>
