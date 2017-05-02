@@ -15,13 +15,14 @@
         <result column="state" property="state" jdbcType="INTEGER"/>
         <result column="content" property="content" jdbcType="VARCHAR"/>
         <result column="is_comment" property="comment" jdbcType="BOOLEAN"/>
+        <result column="is_top" property="top" jdbcType="BOOLEAN"/>
         <result column="read_count" property="readCount" jdbcType="INTEGER" />
         <result column="up_vote" property="upVote" jdbcType="INTEGER" />
         <result column="comment_count" property="commentCount" jdbcType="INTEGER" />
     </resultMap>
     <sql id="Base_Column_List">
     id, title, author, type, loadURL, label, decoration, create_id, create_time, alter_time, 
-    state,content,is_comment
+    state,content,is_comment,is_top
   </sql>
     <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer">
         select
@@ -75,6 +76,9 @@
             <if test="comment != null">
                 is_comment,
             </if>
+            <if test="top != null">
+                is_top,
+            </if>
         </trim>
         <trim prefix="values (" suffix=")" suffixOverrides=",">
             <if test="id != null">
@@ -115,6 +119,9 @@
             </if>
             <if test="comment != null">
                 #{comment,jdbcType=BOOLEAN},
+            </if>
+            <if test="top != null">
+                #{top,jdbcType=BOOLEAN},
             </if>
         </trim>
     </insert>
@@ -157,6 +164,9 @@
             <if test="comment != null">
                 is_comment = #{comment,jdbcType=BOOLEAN},
             </if>
+            <if test="top != null">
+                is_top = #{top,jdbcType=BOOLEAN},
+            </if>
         </set>
         where id = #{id,jdbcType=INTEGER}
     </update>
@@ -169,7 +179,7 @@
     <select id="selectPageList" resultMap="BaseResultMap">
         SELECT
         a.id, a.title, a.author, a.type, a.loadURL, a.label,a. decoration, a.create_id, a.create_time, a.alter_time,
-        a.state,a.content,a.is_comment,b.read_count,b.up_vote,b.comment_count
+        a.state,a.content,a.is_comment,a.is_top,b.read_count,b.up_vote,b.comment_count
         FROM topic a LEFT JOIN topic_stat b on(a.id =b.id)
         <if test="page.orderField!=null">
             ORDER BY ${page.orderField} ${page.orderDir}

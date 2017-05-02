@@ -32,28 +32,21 @@
                         <div class="portlet-body form">
                             <!-- BEGIN FORM-->
                             <form action="#" class="form-horizontal">
+                                <input id="id" name="id" type="hidden" class="form-control" value="${topic.id}">
                                 <div class="form-body">
-                                    <div class="form-group">
-                                        <label class="col-md-2 control-label">类别</label>
-                                        <div class="col-md-10">
-                                            <select id="type" class="form-control" >
-                                                <option value="1" selected>JAVA</option>
-                                            </select>
-                                            <span class="help-block"></span>
-                                        </div>
-                                    </div>
                                     <div class="form-group">
                                         <label class="col-md-2 control-label">标题</label>
                                         <div class="col-md-10">
-                                            <input id="title" name="title" type="text" class="form-control" placeholder="标题">
+                                            <input id="title" name="title" type="text" class="form-control"
+                                                   placeholder="标题" value="${topic.title}">
                                             <span class="help-block"></span>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-md-2 control-label">摘要</label>
                                         <div class="col-md-10">
-                                            <textarea  id="decoration" name="decoration"   class="form-control"
-                                                      placeholder="摘要"></textarea>
+                                            <textarea id="decoration" name="decoration" class="form-control"
+                                                      placeholder="摘要">${topic.decoration}</textarea>
                                             <span class="help-block"></span>
                                         </div>
                                     </div>
@@ -61,14 +54,26 @@
                                         <label class="col-md-2 control-label">正文</label>
                                         <div class="col-md-10">
                                            <textarea id="editor_id" name="content"
-                                                     style="width:100%;height:440px;"></textarea>
+                                                     style="width:100%;height:440px;">${topic.content}</textarea>
                                             <span class="help-block"></span>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-md-2 control-label">标签</label>
                                         <div class="col-md-10">
-                                            <input id="label" name="label"  type="text" class="form-control todo-taskbody-tags" placeholder="添加标签..." value="">
+                                            <input id="label" name="label" type="text"
+                                                   class="form-control todo-taskbody-tags" placeholder="添加标签..."
+                                                   value="${topic.label}">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-2 control-label">类别</label>
+                                        <div class="col-md-10">
+                                            <select id="type" class="form-control">
+                                                <option value="1" selected>原创</option>
+                                                <option value="2">转载</option>
+                                            </select>
+                                            <span class="help-block"></span>
                                         </div>
                                     </div>
                                 </div>

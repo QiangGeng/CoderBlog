@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8" %>
 <%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <!--
 Template Name: Metronic - Responsive Admin Dashboard Template build with Twitter Bootstrap 3.3.5
@@ -48,7 +49,7 @@ License: You must have a valid license purchased only from themeforest(the above
     <!-- END PAGE STYLES -->
     <!-- BEGIN THEME STYLES -->
     <!-- DOC: To use 'rounded corners' style just load 'components-rounded.css' stylesheet instead of 'components.css' in the below style tag -->
-    <link href="${pageContext.request.contextPath}/assets/global/css/components-rounded.css" id="style_components"
+    <link href="${pageContext.request.contextPath}/assets/global/css/components-md.css" id="style_components"
           rel="stylesheet" type="text/css"/>
     <link href="${pageContext.request.contextPath}/assets/global/css/plugins.css" rel="stylesheet" type="text/css"/>
     <link href="${pageContext.request.contextPath}/assets/admin/layout/css/layout.css" rel="stylesheet"
@@ -106,7 +107,12 @@ License: You must have a valid license purchased only from themeforest(the above
                     <div class="btn-group-img btn-group">
                         <button type="button" class="btn btn-sm dropdown-toggle" data-toggle="dropdown"
                                 data-hover="dropdown" data-close-others="true">
-                            <img src="${pageContext.request.contextPath}/assets/admin/layout/img/avatar1.jpg" alt="">
+                            <c:if test="${empty sessionScope.login_user.avatar}">
+                                <img src="${pageContext.request.contextPath}/assets/admin/layout/img/avatar1.jpg" alt="">
+                            </c:if>
+                            <c:if test="${not empty sessionScope.login_user.avatar}">
+                                <img src="${pageContext.request.contextPath}${sessionScope.login_user.avatar}" alt="">
+                            </c:if>
                         </button>
                         <ul class="dropdown-menu-v2" role="menu">
                             <li class="active">

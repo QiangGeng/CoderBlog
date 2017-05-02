@@ -43,9 +43,9 @@ public class TopicApiController extends BaseController {
      * @param topic
      * @return
      */
-    @RequestMapping(value = "add", method = RequestMethod.POST)
+    @RequestMapping(value = "addOrUpdate", method = RequestMethod.POST)
     @ResponseBody
-    public JsonResult addTopic(Topic topic) {
+    public JsonResult addOrUpdateTopic(Topic topic) {
         JsonResult result = new JsonResult();
         if (ObjectUtils.isNull(topic.getTitle())) {
             result.markError("标题不能为空！");
@@ -54,10 +54,40 @@ public class TopicApiController extends BaseController {
         } else if (ObjectUtils.isNull(topic.getContent())) {
             result.markError("正文不能为空！");
         } else {
-            if (topicService.insert(topic)) {
-                result.markSuccess("添加成功", null);
+            if (ObjectUtils.isNotNull(topic.getId())) {
+                if (topicService.updateByPrimaryKeySelective(topic)) {
+                    result.markSuccess("更新成功", null);
+                } else {
+                    result.markSuccess("更新失败", null);
+                }
             } else {
-                result.markSuccess("添加失败", null);
+                topic.setCreateId(currentUser().getId());
+                if (topicService.insert(topic)) {
+                    result.markSuccess("添加成功", null);
+                } else {
+                    result.markSuccess("添加失败", null);
+                }
+            }
+        }
+        return result;
+    }
+
+    /**
+     * 更新博客
+     *
+     * @param topic
+     * @return
+     */
+    @RequestMapping(value = "updateTopic", method = RequestMethod.POST)
+    @ResponseBody
+    public JsonResult updateTopic(Topic topic)
+    {
+        JsonResult result = new JsonResult();
+        if (ObjectUtils.isNotNull(topic.getId())) {
+            if (topicService.updateByPrimaryKeySelective(topic)) {
+                result.markSuccess("更新成功", null);
+            } else {
+                result.markSuccess("更新失败", null);
             }
         }
         return result;

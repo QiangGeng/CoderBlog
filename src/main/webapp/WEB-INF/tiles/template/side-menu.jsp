@@ -25,12 +25,12 @@
                     <span class="title">文章管理</span>
                 </a>
             </li>
-            <li>
-                <a>
-                    <i class="icon-list"></i>
-                    <span class="title">类别管理</span>
-                </a>
-            </li>
+            <%--<li>--%>
+                <%--<a>--%>
+                    <%--<i class="icon-list"></i>--%>
+                    <%--<span class="title">类别管理</span>--%>
+                <%--</a>--%>
+            <%--</li>--%>
             <li>
                 <a href="index-boxed.html">
                     <i class="icon-layers"></i>
@@ -49,8 +49,8 @@
                     <span class="title">回收站</span>
                 </a>
             </li>
-            <li>
-                <a>
+            <li id="side-profile">
+                <a href="${pageContext.request.contextPath}/admin/profile.html">
                     <i class="icon-user"></i>
                     <span class="title">个人信息</span>
                 </a>

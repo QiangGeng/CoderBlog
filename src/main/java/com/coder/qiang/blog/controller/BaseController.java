@@ -26,5 +26,17 @@ public class BaseController {
         return (User) request.getSession().getAttribute(Keys.LOGIN_USER);
     }
 
+    /**
+     * 更新在线人员session
+     * @param request
+     * @param user
+     */
+    protected void setCurrentUser(HttpServletRequest request,User user){
+        try{
+            request.getSession().removeAttribute(Keys.LOGIN_USER);
+            request.getSession().setAttribute(Keys.LOGIN_USER,user);
+        }catch (Exception ex){}
+    }
+
 
 }

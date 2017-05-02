@@ -27,7 +27,9 @@ public class Topic {
 
     private String content;
 
-    private boolean comment;
+    private Boolean comment;
+
+    private Boolean top;
 
     private Integer readCount;
 
@@ -134,12 +136,20 @@ public class Topic {
         this.content = content == null ? null : content.trim();
     }
 
-    public boolean isComment() {
+    public Boolean getComment() {
         return comment;
     }
 
-    public void setComment(boolean comment) {
+    public void setComment(Boolean comment) {
         this.comment = comment;
+    }
+
+    public Boolean getTop() {
+        return top;
+    }
+
+    public void setTop(Boolean top) {
+        this.top = top;
     }
 
     public Integer getReadCount() {
