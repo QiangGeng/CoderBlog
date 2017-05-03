@@ -63,7 +63,7 @@
                                         <div class="col-md-10">
                                             <input id="label" name="label" type="text"
                                                    class="form-control todo-taskbody-tags" placeholder="添加标签..."
-                                                   value="${topic.label}">
+                                                    value="${topic.label}" >
                                         </div>
                                     </div>
                                     <div class="form-group">
@@ -82,7 +82,7 @@
                                         <div class="col-md-offset-3 col-md-9">
                                             <button id="saveBtn" type="button" class="btn green">保存</button>
                                             <span id="labelmsg" class="label "></span>
-                                            <button id="cancelBtn" type="button" class="btn default">取消</button>
+                                            <button id="cancelBtn" onclick="window.history.back()" type="button" class="btn default">取消</button>
                                         </div>
                                     </div>
                                 </div>

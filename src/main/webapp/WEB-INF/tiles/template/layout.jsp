@@ -116,7 +116,7 @@ License: You must have a valid license purchased only from themeforest(the above
                         </button>
                         <ul class="dropdown-menu-v2" role="menu">
                             <li class="active">
-                                <a href="profile.html">个人信息 <span class="badge badge-danger">1</span> </a>
+                                <a href="${pageContext.request.contextPath}/admin/profile.html">个人信息</a>
                             </li>
                             <li>
                                 <a href="lock_screen.html">锁屏</a>

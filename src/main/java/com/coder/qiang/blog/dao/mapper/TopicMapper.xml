@@ -16,9 +16,9 @@
         <result column="content" property="content" jdbcType="VARCHAR"/>
         <result column="is_comment" property="comment" jdbcType="BOOLEAN"/>
         <result column="is_top" property="top" jdbcType="BOOLEAN"/>
-        <result column="read_count" property="readCount" jdbcType="INTEGER" />
-        <result column="up_vote" property="upVote" jdbcType="INTEGER" />
-        <result column="comment_count" property="commentCount" jdbcType="INTEGER" />
+        <result column="read_count" property="readCount" jdbcType="INTEGER"/>
+        <result column="up_vote" property="upVote" jdbcType="INTEGER"/>
+        <result column="comment_count" property="commentCount" jdbcType="INTEGER"/>
     </resultMap>
     <sql id="Base_Column_List">
     id, title, author, type, loadURL, label, decoration, create_id, create_time, alter_time, 
@@ -171,8 +171,23 @@
         where id = #{id,jdbcType=INTEGER}
     </update>
     <select id="count" parameterType="com.coder.qiang.blog.modal.Topic" resultType="java.lang.Integer">
-    SELECT COUNT(1) FROM topic
-  </select>
+        SELECT COUNT(1)
+        FROM topic a LEFT JOIN topic_stat b on(a.id =b.id)
+        <where>
+            <if test="title != null ">
+                a.title LIKE CONCAT(CONCAT('%', #{title, jdbcType=VARCHAR}),'%')
+            </if>
+            <if test="type != null ">
+                AND a.type = #{type, jdbcType=INTEGER}
+            </if>
+            <if test="createId != null ">
+                AND a.create_id = #{createId, jdbcType=INTEGER}
+            </if>
+            <if test="state != null ">
+                AND a.state = #{state, jdbcType=INTEGER}
+            </if>
+        </where>
+    </select>
     <select id="countAll" resultType="java.lang.Integer">
     SELECT COUNT(1) FROM topic
   </select>
@@ -181,6 +196,20 @@
         a.id, a.title, a.author, a.type, a.loadURL, a.label,a. decoration, a.create_id, a.create_time, a.alter_time,
         a.state,a.content,a.is_comment,a.is_top,b.read_count,b.up_vote,b.comment_count
         FROM topic a LEFT JOIN topic_stat b on(a.id =b.id)
+        <where>
+            <if test="filter.title != null ">
+                a.title LIKE CONCAT(CONCAT('%', #{filter.title, jdbcType=VARCHAR}),'%')
+            </if>
+            <if test="filter.type != null ">
+                AND a.type = #{filter.type, jdbcType=INTEGER}
+            </if>
+            <if test="filter.createId != null ">
+                AND a.create_id = #{filter.createId, jdbcType=INTEGER}
+            </if>
+            <if test="filter.state != null ">
+                AND a.state = #{filter.state, jdbcType=INTEGER}
+            </if>
+        </where>
         <if test="page.orderField!=null">
             ORDER BY ${page.orderField} ${page.orderDir}
         </if>

@@ -101,11 +101,12 @@
                                         </div>
                                         <div class="form-group">
                                             <label class="control-label">自我介绍</label>
-                                            <textarea class="form-control"  name="introduce" rows="3"
+                                            <textarea class="form-control" name="introduce" rows="3"
                                                       placeholder="${sessionScope.login_user.introduce}"></textarea>
                                         </div>
                                         <div class="margiv-top-10">
-                                            <a href="javascript:;" class="btn green-haze submit" onclick="Profile.updateUserInfo()">
+                                            <a href="javascript:;" class="btn green-haze submit"
+                                               onclick="Profile.updateUserInfo()">
                                                 保存 </a>
                                             <span id="labelmsg" class="label "></span>
                                         </div>
@@ -140,7 +141,8 @@
                                             </div>
                                         </div>
                                         <div class="margin-top-10">
-                                            <a href="javascript:;" class="btn green-haze" onclick="Profile.updateUserAvatar()">
+                                            <a href="javascript:;" class="btn green-haze"
+                                               onclick="Profile.updateUserAvatar()">
                                                 提交 </a>
                                             <span id="labelmsg-avatar" class="label "></span>
                                         </div>
@@ -152,21 +154,29 @@
                                     <form action="#">
                                         <div class="form-group">
                                             <label class="control-label">当前密码</label>
-                                            <input type="password" class="form-control"/>
+                                            <div>
+                                                <input id="oldPwd" type="password" name="oldPwd" class="form-control"/>
+                                                <span class="help-block"></span>
+                                            </div>
                                         </div>
                                         <div class="form-group">
                                             <label class="control-label">新密码</label>
-                                            <input type="password" class="form-control"/>
+                                            <div>
+                                                <input id="newPwd"  type="password" name="newPwd"   class="form-control"/>
+                                                <span class="help-block"></span>
+                                            </div>
                                         </div>
                                         <div class="form-group">
                                             <label class="control-label">确认密码</label>
-                                            <input type="password" class="form-control"/>
+                                            <div>
+                                                <input id="newPwd2" type="password" name="newPwd2" class="form-control"/>
+                                                <span class="help-block"></span>
+                                            </div>
                                         </div>
                                         <div class="margin-top-10">
-                                            <a href="javascript:;" class="btn green-haze">
-                                                修改密码</a>
-                                            <a href="javascript:;" class="btn default">
-                                                取消 </a>
+                                            <button type="button" class="btn green-haze " onclick="Profile.updateUserPwd()">
+                                                修改密码</button>
+                                            <span id="labelmsg-pwd" class="label "></span>
                                         </div>
                                     </form>
                                 </div>
@@ -187,9 +197,9 @@
         <script type="text/javascript"
                 src="${pageContext.request.contextPath}/assets/global/plugins/bootstrap-datepicker/locales/bootstrap-datepicker.zh-CN.min.js"></script>
         <script type="text/javascript"
-                src="${pageContext.request.contextPath }/assets/global/plugins/ajaxfileupload.js"></script>
+                src="${pageContext.request.contextPath }/assets/global/scripts/ajaxfileupload.js"></script>
         <script type="text/javascript"
-                src="${pageContext.request.contextPath}/assets/admin/pages/scripts/profile.js?v=1.2"></script>
+                src="${pageContext.request.contextPath}/assets/admin/pages/scripts/profile.js?v=1.3"></script>
         <script>
             jQuery(document).ready(function () {
                 Metronic.init();

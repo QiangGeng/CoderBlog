@@ -51,4 +51,15 @@ public class TopicController extends BaseController {
             model.addAttribute("topic", topic);
         return ADMIN_PREFIX + "topic-add";
     }
+
+    /**
+     * 回收站
+     *
+     * @return
+     */
+    @RequestMapping("topic-recycle.html")
+    public String showRecycle() {
+        return ADMIN_PREFIX + "topic-recycle";
+    }
+
 }

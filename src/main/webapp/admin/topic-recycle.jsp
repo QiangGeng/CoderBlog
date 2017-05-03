@@ -9,7 +9,7 @@
 <%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles" %>
 <tiles:insertDefinition name="tiles.template.admin.layout">
     <tiles:putAttribute name="title">
-        Coder Blog - 文章管理
+        Coder Blog - 回收站
     </tiles:putAttribute>
     <tiles:putAttribute name="page_css">
         <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/assets/global/plugins/datatables/plugins/bootstrap/dataTables.bootstrap.css?v=1"/>
@@ -27,12 +27,8 @@
                     <div class="portlet light bordered">
                         <div class="portlet-title">
                             <div class="caption font-dark">
-                                <span class="caption-subject bold uppercase">文章列表</span>
+                                <span class="caption-subject bold uppercase">回收站</span>
                                 <span class="caption-helper">.</span>
-                            </div>
-                            <div class="actions">
-                                <a href="${pageContext.request.contextPath}/admin/topic/topic-add.html" class="btn btn-circle btn-default btn-sm">
-                                    <i class="fa fa-plus"></i> 添加 </a>
                             </div>
                         </div>
                         <div class="portlet-body">
@@ -68,13 +64,13 @@
         <script type="text/javascript"
                 src="${pageContext.request.contextPath}/assets/global/plugins/bootstrap-confirmation/bootstrap-confirmation.min.js"></script>
         <script type="text/javascript"
-                src="${pageContext.request.contextPath}/assets/admin/pages/scripts/topic-list.js?v=1.5"></script>
+                src="${pageContext.request.contextPath}/assets/admin/pages/scripts/topic-recycle.js?v=1.6"></script>
         <script>
             jQuery(document).ready(function () {
                 Metronic.init();
                 Layout.init();
-                setMenu("side-topic");
-                TopicList.init();
+                setMenu("side-topic-recycle");
+                TopicRecycle.init();
             });
         </script>
     </tiles:putAttribute>

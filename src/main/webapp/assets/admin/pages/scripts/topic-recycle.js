@@ -1,4 +1,4 @@
-var TopicList = function () {
+var TopicRecycle = function () {
     var _self = "";
     var tableContainer = $("#table-topic-list").parents(".table-container");
     return {
@@ -17,9 +17,7 @@ var TopicList = function () {
                         $.post(window.apppath + "/admin/api/topic/list", {
                             length: params.length,
                             start: params.start,
-                            orderField:"a.is_top DESC , a.id",
-                            orderDir:"desc",
-                            state: 2//已发布的
+                            state: 3//已删除的
                         }, function (res) {
                             if (res) {
                                 callback(res);
@@ -37,7 +35,7 @@ var TopicList = function () {
                         {"data": "title"},
                         {
                             "data": "state", render: function (data, row) {
-                            var str = ["未审核", "草稿", "已发布"];
+                            var str = ["未审核", "草稿", "已发布", "已删除"];
                             if (data == null || data == "")
                                 return "未审核";
                             else
@@ -72,55 +70,55 @@ var TopicList = function () {
                         {
                             "data": "id", render: function (data, type, row) {
                             var html = "";
-                            html += '<a href="' + window.apppath + '/admin/topic/topic-info.html/' + data + '" class="btn btn-sm btn-danger">编辑 </a>'
-                            if (row.top == true)
-                                html += '<a href="#" data="' + data + '" data-top="0" class="btn btn-sm  putTop">取消置顶 </a>';
-                            else
-                                html += '<a href="#" data="' + data + '" data-top="1" class="btn btn-sm btn-info putTop">置顶 </a>';
-                            html += '<a id="deleteBtn" href="#" data="' + data + '" data-delete="3" class="btn btn-sm btn-warning delete" >删除 </a>'
+                            html += '<a href="#" data="' + data + '" data-state="2" class="btn btn-sm btn-info restore" >还原 </a>'
+                            html += '<a href="#" data="' + data + '" data-delete="3" class="btn btn-sm btn-warning delete" >删除 </a>'
                             return html;
                         }
                         }
                     ]
                 }
             });
-            //置顶
-            _self.grid.getTable().on("click", "a.putTop", function (e) {
+            //还原
+            _self.grid.getTable().on("click", "a.restore", function (e) {
+                var curRow = $(this).closest('tr');
                 var id = $(this).attr("data");
-                var top = $(this).data("top");
-                _self.putTop(id, top);
+                var state = $(this).data("state");
+                $(this).confirmation({
+                    'title': '确认还原？', 'placement': 'left', 'btnOkLabel': '确认', 'btnCancelLabel': '取消',
+                    'onConfirm': function () {
+                        _self.restoreTopic(id, state, curRow);
+                    },
+                }).confirmation('toggle');
             });
             //删除
             _self.grid.getTable().on("click", "a.delete", function (e) {
                 var curRow = $(this).closest('tr');
                 var id = $(this).attr("data");
-                var state = $(this).data("delete");
                 $(this).confirmation({
                     'title': '确认删除？', 'placement': 'left', 'btnOkLabel': '确认', 'btnCancelLabel': '取消',
                     'onConfirm': function () {
-                        _self.deleteTopic(id, state,curRow);
+                        _self.deleteTopic(id, curRow);
                     },
                 }).confirmation('toggle');
             });
 
         },
-        deleteTopic: function (id, state,curRow) {
-            $.post(window.apppath + "/admin/api/topic/updateTopic", {
-                id: id,
-                state: state
+        deleteTopic: function (id,curRow) {
+            $.post(window.apppath + "/admin/api/topic/deleteTopic", {
+                id: id
             }, function (res) {
                 if (res.success) {
                     _self.grid.getDataTable().row(curRow).remove().draw(false);
                 }
             }, 'json');
         },
-        putTop: function (id, top) {
+        restoreTopic: function (id, state,curRow) {
             $.post(window.apppath + "/admin/api/topic/updateTopic", {
                 id: id,
-                top: top
+                state: state
             }, function (res) {
                 if (res.success) {
-                    _self.grid.getDataTable().ajax.reload();
+                    _self.grid.getDataTable().row(curRow).remove().draw(false);
                 }
             }, 'json');
         }

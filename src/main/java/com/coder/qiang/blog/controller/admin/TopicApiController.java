@@ -33,6 +33,7 @@ public class TopicApiController extends BaseController {
     @RequestMapping(value = "list", method = RequestMethod.POST)
     @ResponseBody
     public PageResponse<Topic> getTopicList(Topic topic, PageRequest pageRequest) {
+        topic.setCreateId(currentUser().getId());
         PageResponse<Topic> result = topicService.selectPageList(topic, pageRequest);
         return result;
     }
@@ -88,6 +89,28 @@ public class TopicApiController extends BaseController {
                 result.markSuccess("更新成功", null);
             } else {
                 result.markSuccess("更新失败", null);
+            }
+        }
+        return result;
+    }
+
+
+    /**
+     * 删除博客（彻底删除）
+     *
+     * @param id
+     * @return
+     */
+    @RequestMapping(value = "deleteTopic", method = RequestMethod.POST)
+    @ResponseBody
+    public JsonResult deleteTopic(Integer id)
+    {
+        JsonResult result = new JsonResult();
+        if (ObjectUtils.isNotNull(id)) {
+            if (topicService.deleteByPrimaryKey(id)) {
+                result.markSuccess("删除博客成功", null);
+            } else {
+                result.markSuccess("删除博客失败", null);
             }
         }
         return result;
